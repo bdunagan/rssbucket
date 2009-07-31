@@ -80,8 +80,10 @@
 		}
 		else if ([suppliedDate compare:referenceDate] == NSOrderedSame && i == 0)
 		{
-			// Today
-			return [NSString stringWithString:@"Today"];
+			// Today's time (like iPhone Mail)
+			[formatter setDateStyle:NSDateFormatterNoStyle];
+			[formatter setTimeStyle:NSDateFormatterShortStyle];
+			return [formatter stringFromDate:date];
 		}
 		else if ([suppliedDate compare:referenceDate] == NSOrderedSame && i == 1)
 		{
